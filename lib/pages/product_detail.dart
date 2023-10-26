@@ -47,12 +47,13 @@ class _ProductDetailState extends State<ProductDetail> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        // Button Back & Cart Start
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             MyTextButtonCustom(
                               onPressed: () {
-                                Navigator.pop(context);
+                                HandleDetailView.back(context);
                               },
                               width: 35,
                               height: 35,
@@ -77,6 +78,9 @@ class _ProductDetailState extends State<ProductDetail> {
                             ),
                           ],
                         ),
+                        // Button Back & Cart End
+
+                        // Button Favorite Start
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -96,7 +100,8 @@ class _ProductDetailState extends State<ProductDetail> {
                               ),
                             ),
                           ],
-                        )
+                        ),
+                        // Button Favorite End
                       ],
                     ),
                   ),
@@ -124,6 +129,7 @@ class _ProductDetailState extends State<ProductDetail> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Title & Items Selling Start
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -156,7 +162,11 @@ class _ProductDetailState extends State<ProductDetail> {
                         ),
                       ],
                     ),
+                    // Title & Items Selling End
+
                     const SizedBox(height: 7),
+
+                    // Subtitle Start
                     Text(
                       widget.data.subtitle,
                       style: TextStyle(
@@ -165,7 +175,11 @@ class _ProductDetailState extends State<ProductDetail> {
                         color: textGrey,
                       ),
                     ),
+                    // Subtitle End
+
                     const SizedBox(height: 8),
+
+                    // Rating Start
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -185,6 +199,7 @@ class _ProductDetailState extends State<ProductDetail> {
                         ),
                       ],
                     ),
+                    // Rating End
 
                     const SizedBox(height: 15),
 
@@ -210,7 +225,7 @@ class _ProductDetailState extends State<ProductDetail> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 5),
+                    const SizedBox(height: 10),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -360,7 +375,7 @@ class _ProductDetailState extends State<ProductDetail> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SvgPicture.asset("assets/icons/cart.svg"),
-                          const SizedBox(width: 5),
+                          const SizedBox(width: 10),
                           Text(
                             "Add to Cart",
                             style: TextStyle(

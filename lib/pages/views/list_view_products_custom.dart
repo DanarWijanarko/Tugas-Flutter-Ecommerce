@@ -30,13 +30,9 @@ class _ListViewProductsCustomState extends State<ListViewProductsCustom> {
             child: InkWell(
               borderRadius: BorderRadius.circular(15),
               onTap: () {
-                Navigator.push(
+                HandleDetailView.move(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return ProductDetail(data: products[index]);
-                    },
-                  ),
+                  ProductDetail(data: products[index]),
                 );
               },
               child: Container(
