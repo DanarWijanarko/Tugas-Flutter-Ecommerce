@@ -6,3 +6,4 @@ Color textGrey = const Color(0xFF666666);
 Color bgGrey = const Color(0xFFF3F4F5);
 Color yellow = const Color(0xFFFFAA07);
 Color red = const Color(0xFFFF0000);
+Color bgActiveNavbar = const Color(0xffEEEEEE);

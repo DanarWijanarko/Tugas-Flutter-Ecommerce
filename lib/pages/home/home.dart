@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tugas5_list_grid_view/components/app_bar_custom.dart';
-import 'package:tugas5_list_grid_view/pages/views/grid_view_product_custom.dart';
-import 'package:tugas5_list_grid_view/pages/views/list_view_products_custom.dart';
+import 'package:tugas5_list_grid_view/pages/home/views/grid_view_product_custom.dart';
+import 'package:tugas5_list_grid_view/pages/home/views/list_view_products_custom.dart';
 import 'package:tugas5_list_grid_view/components/search_field_custom.dart';
 import 'package:tugas5_list_grid_view/components/text_button_custom.dart';
 import 'package:tugas5_list_grid_view/theme.dart';

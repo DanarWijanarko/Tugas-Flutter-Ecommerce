@@ -31,6 +31,7 @@ class HandleDetailView {
       ),
     );
   }
+
   static back(context) {
     Navigator.pop(context);
   }
