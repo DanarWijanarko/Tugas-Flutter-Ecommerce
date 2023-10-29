@@ -58,9 +58,17 @@ class MyNavbarButton extends StatelessWidget {
         ),
       );
     } else {
-      return IconButton(
+      return TextButton(
         onPressed: onPressed,
-        icon: Icon(
+        style: TextButton.styleFrom(
+          padding: const EdgeInsets.all(5),
+          minimumSize: Size.zero,
+          foregroundColor: textGrey,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(55),
+          )
+        ),
+        child: Icon(
           icon,
           color: black,
           size: 25,

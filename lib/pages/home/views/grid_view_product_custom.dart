@@ -27,7 +27,7 @@ class _GridViewProductCustomState extends State<GridViewProductCustom> {
           ),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
-            mainAxisExtent: 295,
+            mainAxisExtent: 315,
             mainAxisSpacing: 11,
             crossAxisSpacing: 20,
           ),

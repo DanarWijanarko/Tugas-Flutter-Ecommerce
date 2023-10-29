@@ -37,7 +37,7 @@ class _ListViewProductsCustomState extends State<ListViewProductsCustom> {
               },
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                height: 130,
+                height: 145,
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
                 // margin: const EdgeInsets.only(top: 15),
@@ -166,14 +166,14 @@ class _ListViewProductsCustomState extends State<ListViewProductsCustom> {
                                         decorationColor: red,
                                         decorationThickness: 2.8,
                                         color: textGrey,
-                                        fontSize: 12,
+                                        fontSize: 10,
                                       ),
                                     ),
                                     Text(
                                       "${products[index].discout}%",
                                       style: TextStyle(
                                         fontWeight: FontWeight.w600,
-                                        fontSize: 13,
+                                        fontSize: 12,
                                         color: red,
                                       ),
                                     ),
