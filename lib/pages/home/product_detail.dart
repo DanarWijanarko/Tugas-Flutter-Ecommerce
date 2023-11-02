@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tugas5_list_grid_view/components/text_button_custom.dart';
 import 'package:tugas5_list_grid_view/functions/my_function.dart';
-import 'package:tugas5_list_grid_view/models/product_model.dart';
+// import 'package:tugas5_list_grid_view/models/product_model.dart';
 import 'package:tugas5_list_grid_view/theme.dart';
 
 class ProductDetail extends StatefulWidget {
-  final Product data;
+  final data;
 
   const ProductDetail({
     super.key,
@@ -18,11 +18,29 @@ class ProductDetail extends StatefulWidget {
 }
 
 class _ProductDetailState extends State<ProductDetail> {
+  double containerHeight = 420.0;
+  bool isExpanded = false;
+
+  void toggleContainerHeight() {
+    setState(() {
+      if (isExpanded) {
+        containerHeight = 420.0;
+      } else {
+        // containerHeight = 550;
+        containerHeight =
+            widget.data.description.toString().length.toDouble() * 1.6;
+        // containerHeight = MediaQuery.of(context).size.height / 2;
+      }
+      isExpanded = !isExpanded;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
+          // Image Background & Button Start
           SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Column(
@@ -37,87 +55,87 @@ class _ProductDetailState extends State<ProductDetail> {
                       fit: BoxFit.cover,
                     ),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      top: 65,
-                      left: 20,
-                      right: 20,
-                      bottom: 52,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        // Button Back & Cart Start
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            MyTextButtonCustom(
-                              onPressed: () {
-                                HandleDetailView.back(context);
-                              },
-                              width: 35,
-                              height: 35,
-                              padding: const EdgeInsets.all(5),
-                              bgColor: white,
-                              child: Icon(
-                                Icons.arrow_back,
-                                color: black,
+                  child: SafeArea(
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        top: 15,
+                        left: 20,
+                        right: 20,
+                        bottom: 52,
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          // Button Back & Cart Start
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              MyTextButtonCustom(
+                                onPressed: () {
+                                  HandleDetailView.back(context);
+                                },
+                                width: 35,
+                                height: 35,
+                                padding: const EdgeInsets.all(5),
+                                bgColor: white,
+                                child: Icon(
+                                  Icons.arrow_back,
+                                  color: black,
+                                ),
                               ),
-                            ),
-                            MyTextButtonCustom(
-                              onPressed: () {},
-                              width: 35,
-                              height: 35,
-                              padding: const EdgeInsets.all(6.5),
-                              bgColor: white,
-                              child: SvgPicture.asset(
-                                "assets/icons/cart.svg",
-                                colorFilter:
-                                    ColorFilter.mode(black, BlendMode.srcATop),
+                              MyTextButtonCustom(
+                                onPressed: () {},
+                                width: 35,
+                                height: 35,
+                                padding: const EdgeInsets.all(6.5),
+                                bgColor: white,
+                                child: SvgPicture.asset(
+                                  "assets/icons/cart.svg",
+                                  colorFilter: ColorFilter.mode(
+                                      black, BlendMode.srcATop),
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        // Button Back & Cart End
+                            ],
+                          ),
+                          // Button Back & Cart End
 
-                        // Button Favorite Start
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            MyTextButtonCustom(
-                              onPressed: () {},
-                              width: 35,
-                              height: 35,
-                              padding: const EdgeInsets.all(5.5),
-                              bgColor: white,
-                              child: SvgPicture.asset(
-                                "assets/icons/love.svg",
-                                colorFilter:
-                                    ColorFilter.mode(black, BlendMode.srcATop),
-                                width: 10,
-                                height: 10,
+                          // Button Favorite Start
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              MyTextButtonCustom(
+                                onPressed: () {},
+                                width: 35,
+                                height: 35,
+                                padding: const EdgeInsets.all(5.5),
+                                bgColor: white,
+                                child: SvgPicture.asset(
+                                  "assets/icons/love.svg",
+                                  colorFilter: ColorFilter.mode(
+                                      black, BlendMode.srcATop),
+                                  width: 10,
+                                  height: 10,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        // Button Favorite End
-                      ],
+                            ],
+                          ),
+                          // Button Favorite End
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
           ),
+          // Image Background & Button End
           Positioned(
             bottom: 0,
-            height: 420,
             width: MediaQuery.of(context).size.width,
-            child: Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 30,
-                vertical: 25,
-              ),
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 250),
+              height: 420,
               decoration: BoxDecoration(
                 color: white,
                 borderRadius: const BorderRadius.only(
@@ -126,10 +144,44 @@ class _ProductDetailState extends State<ProductDetail> {
                 ),
               ),
               child: SingleChildScrollView(
+                padding: const EdgeInsets.only(
+                  left: 30,
+                  right: 30,
+                  bottom: 25,
+                  top: 25,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Title & Items Selling Start
+                    // // Toggle Expand Container Button Start
+                    // TextButton(
+                    //   style: TextButton.styleFrom(
+                    //     padding: const EdgeInsets.all(0),
+                    //     minimumSize: Size.zero,
+                    //     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    //     foregroundColor: textGrey,
+                    //   ),
+                    //   onPressed: () {
+                    //     toggleContainerHeight();
+                    //   },
+                    //   child: SizedBox(
+                    //     width: MediaQuery.of(context).size.width,
+                    //     child: !isExpanded
+                    //         ? Icon(
+                    //             Icons.expand_less,
+                    //             color: black,
+                    //             size: 30,
+                    //           )
+                    //         : Icon(
+                    //             Icons.expand_more,
+                    //             color: black,
+                    //             size: 30,
+                    //           ),
+                    //   ),
+                    // ),
+                    // // Toggle Expand Container Button End
+
+                    // Button Expand Start
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -162,7 +214,7 @@ class _ProductDetailState extends State<ProductDetail> {
                         ),
                       ],
                     ),
-                    // Title & Items Selling End
+                    // Button Expand End
 
                     const SizedBox(height: 7),
 

@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:tugas5_list_grid_view/components/text_button_custom.dart';
 import 'package:tugas5_list_grid_view/data/product_data.dart';
 import 'package:tugas5_list_grid_view/functions/my_function.dart';
-import 'package:tugas5_list_grid_view/pages/product_detail.dart';
 import 'package:tugas5_list_grid_view/theme.dart';
 
 class ListViewProductsCustom extends StatefulWidget {
@@ -32,7 +31,8 @@ class _ListViewProductsCustomState extends State<ListViewProductsCustom> {
               onTap: () {
                 HandleDetailView.move(
                   context,
-                  ProductDetail(data: products[index]),
+                  '/product-detail',
+                  products[index],
                 );
               },
               child: Container(

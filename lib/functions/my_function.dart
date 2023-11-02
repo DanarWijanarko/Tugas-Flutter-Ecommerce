@@ -21,14 +21,10 @@ class DiscountCount {
 }
 
 class HandleDetailView {
-  static move(context, pages) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) {
-          return pages;
-        },
-      ),
+  static move(context, url, data) {
+    Navigator.of(context).pushNamed(
+      url,
+      arguments: data,
     );
   }
 

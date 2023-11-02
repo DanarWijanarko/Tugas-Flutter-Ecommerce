@@ -13,7 +13,7 @@ class MySearchFieldCustom extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            width: 300.4,
+            width: MediaQuery.of(context).size.width - 111,
             height: 50,
             decoration: BoxDecoration(
               color: bgGrey,
